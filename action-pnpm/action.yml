@@ -43,8 +43,9 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
     - name: Install dependencies
+      shell: bash
       run: pnpm install
-
-    - run: ${{ inputs.command }}
+    - name: Build & release
+      run: ${{ inputs.command }}
       shell: bash
       working-directory: ${{ inputs.CWD }}
