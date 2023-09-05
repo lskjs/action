@@ -25,7 +25,10 @@ runs:
       with:
         version: ${{ inputs.pnpm-version }}  
     - run: pnpm install
+      shell: bash
     - run: pnpm build
       env:
         NODE_OPTIONS: ${{ inputs.NODE_OPTIONS }}
+      shell: bash
     - run: pnpm -F "." deploy .release
+      shell: bash
