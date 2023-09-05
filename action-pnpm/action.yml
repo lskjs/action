@@ -21,8 +21,6 @@ inputs:
 
 runs:
   using: composite
-  env: 
-    NODE_OPTIONS: ${{ inputs.NODE_OPTIONS }}
   steps:
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -51,3 +49,5 @@ runs:
       run: ${{ inputs.command }}
       shell: bash
       working-directory: ${{ inputs.CWD }}
+      env:
+        NODE_OPTIONS: ${{ inputs.NODE_OPTIONS }}
