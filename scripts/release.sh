@@ -5,7 +5,7 @@ log git add . && \
 log git commit -m "$COMMIT_MESSAGE" && \
 log git tag -d v1 && \
 log git tag -a v1 -m "$COMMIT_MESSAGE" && \
-log git push origin master --force && \
+log git push --force --follow-tags --tags && \
 \
 log cd repos/action-aws && \
 log rsync -avz ../../action-aws/ . && \
@@ -14,7 +14,7 @@ log git add . && \
 log git commit -m "$COMMIT_MESSAGE" && \
 log git tag -d v1 && \
 log git tag -a v1 -m "$COMMIT_MESSAGE" && \
-log git push origin master --force --follow-tags && \
+log git push --force --follow-tags --tags && \
 log cd ../.. && \
 \
 log cd repos/action-pnpm && \
@@ -24,6 +24,6 @@ log git add . && \
 log git commit -m "$COMMIT_MESSAGE" && \
 log git tag -d v1 && \
 log git tag -a v1 -m "$COMMIT_MESSAGE" && \
-log git push origin master --force --follow-tags && \
+log git push --force --follow-tags --tags && \
 \
 echo ok
