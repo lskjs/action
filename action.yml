@@ -1,5 +1,5 @@
-name: Test
-description: Test
+name: Prepare utils before build
+description: Prepare utils before build
 branding:
   icon: package
   color: orange
@@ -7,5 +7,9 @@ branding:
 runs:
   using: composite
   steps:
-    - run: echo 123 Test
+    - run: |
+        log() { echo "$*" ; "$@" ; }
+        exists() { if [ -z "${!1}" ]; then echo "$1 is empty" && exit 1; fi }
+        if [ -x "$(command -v pnpm)" ]; then pnpm config set store-dir .pnpm-store; fi
+        if [ "$CWD" ]; then echo "Change directory: $CWD" && cd $CWD; fi
       shell: bash

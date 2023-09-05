@@ -5,4 +5,18 @@ git commit -m "$COMMIT_MESSAGE" && \
 git push origin master && \
 git push origin v1 && \
 \
-cp -R aws-auth
+cd repos/aws && \
+rsync -avz ../../aws/ . && \
+git add . && \
+git commit -m "$COMMIT_MESSAGE" && \
+git push origin master && \
+git push origin v1 && \
+\
+cd repos/pnpm && \
+rsync -avz ../../aws/ . && \
+git add . && \
+git commit -m "$COMMIT_MESSAGE" && \
+git push origin master && \
+git push origin v1 && \
+\
+echo ok
