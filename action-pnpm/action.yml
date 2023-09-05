@@ -13,6 +13,12 @@ inputs:
     default: --max-old-space-size=8192
   CWD:
     description: Working directory
+  command:
+    description: Custom pnpm build command
+    default: |
+      pnpm install && \
+      pnpm build && \
+      pnpm -F "." deploy .release
 
 runs:
   using: composite
@@ -23,13 +29,6 @@ runs:
     - uses: pnpm/action-setup@v2
       with:
         version: ${{ inputs.pnpm-version }}  
-    - run: pnpm install
-      shell: bash
-    - run: pnpm build
-      env:
-        NODE_OPTIONS: ${{ inputs.NODE_OPTIONS }}
-      shell: bash
-      working-directory: ${{ inputs.CWD }}
-    - run: pnpm -F "." deploy .release
+    - run: ${{ inputs.command }}
       shell: bash
       working-directory: ${{ inputs.CWD }}
