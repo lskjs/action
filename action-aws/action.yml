@@ -34,6 +34,8 @@ runs:
       id: login-ecr
       run: |
         aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin ${{ inputs.AWS_OWNER }}.dkr.ecr.${{ inputs.AWS_REGION }}.amazonaws.com
+      shell: bash
     - name: Login to Amazon CodeArtifact NPM
       run: aws codeartifact login --tool npm --repository ${{ env.AWS_CODEARTIFACT_DOMAIN }} --domain chatterfy --domain-owner ${{ inputs.AWS_OWNER }} --region ${{ inputs.AWS_REGION }}
+      shell: bash
       
