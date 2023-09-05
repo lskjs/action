@@ -14,10 +14,9 @@ inputs:
 
 runs:
   using: composite
-  defaults:
-    run:
-      shell: bash
   steps:
+    - run: echo 123
+      shell: bash
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node-version }}  
