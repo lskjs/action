@@ -11,6 +11,8 @@ inputs:
   NODE_OPTIONS:
     description: Node options for build
     default: --max-old-space-size=8192
+  CWD:
+    description: Working directory
 
 runs:
   using: composite
@@ -27,5 +29,7 @@ runs:
       env:
         NODE_OPTIONS: ${{ inputs.NODE_OPTIONS }}
       shell: bash
+      working-directory: ${{ inputs.CWD }}
     - run: pnpm -F "." deploy .release
       shell: bash
+      working-directory: ${{ inputs.CWD }}
