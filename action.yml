@@ -1,0 +1,11 @@
+name: Test
+description: Test
+branding:
+  icon: package
+  color: orange
+
+runs:
+  using: composite
+  steps:
+    - run: echo 123 Test
+      shell: bash
