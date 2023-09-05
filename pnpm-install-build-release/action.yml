@@ -1,0 +1,26 @@
+name: PNPM install & build & release
+description: PNPM install & build & release
+
+inputs:
+  nodejs-version:
+    description: Vesion of Node.js
+    default: 19.5.0
+  pnpm-version:
+    description: Vesion of PNPM
+    default: 8.1.0
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '19.5.0'
+        node-version: ${{ inputs.nodejs-version }}  
+    - uses: pnpm/action-setup@v2
+      with:
+        version: ${{ inputs.pnpm-version }}  
+    - run: pnpm install
+    - env:
+        NODE_OPTIONS: --max-old-space-size=8192
+      run: pnpm build
+    - run: pnpm -F "." deploy .release
