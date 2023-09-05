@@ -14,6 +14,9 @@ inputs:
 
 runs:
   using: composite
+  defaults:
+    run:
+      shell: bash
   steps:
     - uses: actions/setup-node@v3
       with:
