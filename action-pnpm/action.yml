@@ -1,5 +1,5 @@
-name: PNPM install & build & release
-description: PNPM install & build & release
+name: PNPM & LSK.js install & build & release
+description: PNPM & LSK.js install & build & release
 
 inputs:
   node-version:

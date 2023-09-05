@@ -1,5 +1,5 @@
-name: "AWS Auth"
-description: "AWS Auth"
+name: AWS Auth & LSK.js
+description: AWS Auth & LSK.js
 
 inputs:
   AWS_REGION:
