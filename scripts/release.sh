@@ -14,6 +14,7 @@ log git commit -m "$COMMIT_MESSAGE" && \
 log git tag -d v1 && \
 log git tag -a v1 -m "$COMMIT_MESSAGE" && \
 log git push origin master --force && \
+log cd ../.. && \
 \
 log cd repos/action-pnpm && \
 log rsync -avz ../../action-pnpm/ . && \
