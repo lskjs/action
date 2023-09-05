@@ -17,12 +17,13 @@ inputs:
   AWS_CODEARTIFACT_DOMAIN:
     description: AWS_CODEARTIFACT_DOMAIN
     required: true
+  # AWS_DOCKER_REPOSITORY:
+  #   description: AWS_DOCKER_REPOSITORY
+  #   required: true
 
 runs:
   using: "composite"
   steps:
-    - run: echo 321
-      shell: bash
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
