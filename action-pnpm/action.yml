@@ -54,6 +54,6 @@ runs:
     - name: Build & release
       run: ${{ inputs.command }}
       shell: bash
-      working-directory: ${{ inputs.working-directory | inputs.CWD }}
+      working-directory: ${{ inputs.working-directory || inputs.CWD }}
       env:
         NODE_OPTIONS: ${{ inputs.NODE_OPTIONS }}
