@@ -2,8 +2,8 @@ name: PNPM helpers – install & build & release
 description: PNPM helpers – install & build & release
 author: Igor Suvorov
 branding:
-  icon: 'check-circle'
-  color: 'orange'
+  icon: download
+  color: orange
 
 inputs:
   node-version:

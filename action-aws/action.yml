@@ -2,8 +2,8 @@ name: AWS Auth helpers
 description: AWS Auth helpers
 author: Igor Suvorov
 branding:
-  icon: 'check-circle'
-  color: 'orange'
+  icon: upload
+  color: orange
 
 inputs:
   AWS_REGION:
