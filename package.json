@@ -1,0 +1,15 @@
+{
+  "name": "@lskjs/action",
+  "version": "1.0.0",
+  "prettier": "@lskjs/eslint-config/prettier",
+  "eslintConfig": {
+    "extends": "@lskjs/eslint-config"
+  },
+  "jest": {
+    "preset": "@lskjs/jest-config"
+  },
+  "devDependencies": {
+    "@lskjs/eslint-config": "^3.12.0",
+    "@lskjs/jest-config": "^3.11.0"
+  }
+}
