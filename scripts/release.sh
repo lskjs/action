@@ -27,6 +27,7 @@ log git commit -m "$COMMIT_MESSAGE" && \
 log git tag -d v1 && \
 log git tag -a v1 -m "$COMMIT_MESSAGE" && \
 log git push origin master && git push --force --follow-tags --tags && \
+log cd ../.. && \
 \
 log cd repos/action-secret-file && \
 log rsync -avz ../../action-secret-file/ . && \
@@ -37,5 +38,6 @@ log git commit -m "$COMMIT_MESSAGE" && \
 log git tag -d v1 && \
 log git tag -a v1 -m "$COMMIT_MESSAGE" && \
 log git push origin master && git push --force --follow-tags --tags && \
+log cd ../.. && \
 \
 echo ok
