@@ -1,6 +1,9 @@
-name: PNPM & LSK.js install & build & release
-description: PNPM & LSK.js install & build & release
-
+name: PNPM helpers – install & build & release
+description: PNPM helpers – install & build & release
+author: Igor Suvorov
+branding:
+  icon: 'check-circle'
+  color: 'orange'
 
 inputs:
   node-version:
@@ -13,6 +16,8 @@ inputs:
     description: Node options for build
     default: --max-old-space-size=8192
   CWD:
+    description: Working directory
+  working-directory:
     description: Working directory
   command:
     description: Custom pnpm build command
@@ -49,6 +54,6 @@ runs:
     - name: Build & release
       run: ${{ inputs.command }}
       shell: bash
-      working-directory: ${{ inputs.CWD }}
+      working-directory: ${{ inputs.working-directory | inputs.CWD }}
       env:
         NODE_OPTIONS: ${{ inputs.NODE_OPTIONS }}

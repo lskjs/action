@@ -1,5 +1,9 @@
-name: AWS Auth & LSK.js
-description: AWS Auth & LSK.js
+name: AWS Auth helpers
+description: AWS Auth helpers
+author: Igor Suvorov
+branding:
+  icon: 'check-circle'
+  color: 'orange'
 
 inputs:
   AWS_REGION:
@@ -13,6 +17,9 @@ inputs:
     required: true
   AWS_SECRET_ACCESS_KEY:
     description: AWS_SECRET_ACCESS_KEY
+    required: true
+  AWS_CODEARTIFACT_REPOSITORY:
+    description: AWS_CODEARTIFACT_REPOSITORY
     required: true
   AWS_CODEARTIFACT_DOMAIN:
     description: AWS_CODEARTIFACT_DOMAIN
@@ -36,6 +43,6 @@ runs:
         aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin ${{ inputs.AWS_OWNER }}.dkr.ecr.${{ inputs.AWS_REGION }}.amazonaws.com
       shell: bash
     - name: Login to Amazon CodeArtifact NPM
-      run: aws codeartifact login --tool npm --repository ${{ env.AWS_CODEARTIFACT_DOMAIN }} --domain chatterfy --domain-owner ${{ inputs.AWS_OWNER }} --region ${{ inputs.AWS_REGION }}
+      run: aws codeartifact login --tool npm --repository ${{ env.AWS_CODEARTIFACT_REPOSITORY }} --domain ${{ env.AWS_CODEARTIFACT_DOMAIN }} --domain-owner ${{ inputs.AWS_OWNER }} --region ${{ inputs.AWS_REGION }}
       shell: bash
       
