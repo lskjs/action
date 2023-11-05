@@ -21,7 +21,7 @@ inputs:
     description: Working directory
   command:
     description: Custom pnpm release command
-    default: pnpm run release
+    default: echo "no release command"
 
 runs:
   using: composite
