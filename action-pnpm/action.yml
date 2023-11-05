@@ -20,10 +20,8 @@ inputs:
   working-directory:
     description: Working directory
   command:
-    description: Custom pnpm build command
-    default: |
-      pnpm build && \
-      pnpm -F "." deploy .release
+    description: Custom pnpm release command
+    default: pnpm run release
 
 runs:
   using: composite
